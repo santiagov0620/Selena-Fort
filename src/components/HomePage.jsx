@@ -17,20 +17,20 @@ function WoodGrainTexture() {
         <filter id="wg" x="0%" y="0%" width="100%" height="100%" colorInterpolationFilters="sRGB">
           <feTurbulence type="fractalNoise" baseFrequency="0.003 0.11" numOctaves="6" seed="22" result="noise"/>
           <feColorMatrix type="matrix"
-            values="0.30 0 0 0 0.07
-                    0.19 0 0 0 0.035
-                    0.07 0 0 0 0.012
-                    0    0 0 1 0"
+            values="0.55 0 0 0 0.10
+                    0.34 0 0 0 0.05
+                    0.12 0 0 0 0.016
+                    0    0 0 1.3 0"
             in="noise"/>
         </filter>
         {/* Plank-level variation */}
         <filter id="wg2" x="0%" y="0%" width="100%" height="100%" colorInterpolationFilters="sRGB">
           <feTurbulence type="fractalNoise" baseFrequency="0.0012 0.0028" numOctaves="3" seed="9" result="planks"/>
           <feColorMatrix type="matrix"
-            values="0.08 0 0 0 0
-                    0.05 0 0 0 0
-                    0.02 0 0 0 0
-                    0    0 0 0.50 0"
+            values="0.18 0 0 0 0.02
+                    0.11 0 0 0 0.01
+                    0.04 0 0 0 0
+                    0    0 0 0.80 0"
             in="planks"/>
         </filter>
       </defs>
@@ -389,12 +389,13 @@ export default function HomePage({ onOpen }) {
           backgroundImage:'repeating-linear-gradient(180deg,transparent 0px,transparent 188px,rgba(0,0,0,0.04) 188px,rgba(0,0,0,0.04) 190px)',
         }}/>
 
-        {/* ── WARM AMBER OVERHEAD CENTER LIGHT ──
-            This is the key missing element — soft overhead lamp
-            illuminating the center of the table, making wood and
-            papers readable, matching the reference image warmth. */}
+        {/* ── WARM AMBER OVERHEAD CENTER LIGHT ── */}
         <div style={{ position:'absolute', inset:0, pointerEvents:'none', zIndex:2,
-          background:'radial-gradient(ellipse 62% 58% at 50% 44%, rgba(175,118,42,0.20) 0%, rgba(140,88,28,0.10) 40%, rgba(90,50,12,0.04) 65%, transparent 80%)'
+          background:'radial-gradient(ellipse 72% 68% at 50% 46%, rgba(210,138,50,0.42) 0%, rgba(178,108,36,0.26) 32%, rgba(120,70,18,0.12) 58%, transparent 76%)'
+        }}/>
+        {/* secondary warm fill — prevents center going black */}
+        <div style={{ position:'absolute', inset:0, pointerEvents:'none', zIndex:2,
+          background:'radial-gradient(ellipse 48% 44% at 50% 48%, rgba(185,120,40,0.18) 0%, transparent 62%)'
         }}/>
 
         {/* ── SAFELIGHT POOL bleeding onto table surface ── */}
